@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Title Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <style>
+        /* navbar 導覽列 開始 */
+        
+        @media screen and (min-width:768px) and (max-width: 1200px) {
+            .navbar .container {
+                width: 100%;
+            }
+            /* 漢堡選單與頁首 */
+            .navbar-toggle {
+                display: block;
+                float: right;
+                margin-right: 0;
+            }
+            .navbar-header {
+                width: 100%;
+            }
+            /* 選單隱藏區 */
+            .collapsing.navbar-collapse {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+            .collapse.navbar-collapse {
+                /* padding: 0; */
+                margin-left: -15px;
+                margin-right: -15px;
+                display: none!important;
+            }
+            .collapse.navbar-collapse.in {
+                display: block!important;
+            }
+            /* 選單項目 */
+            .navbar-nav {
+                margin-left: -15px;
+                margin-right: -15px;
+                float: none;
+            }
+            .navbar-nav.navbar-right,
+            .navbar-form.navbar-left {
+                float: none!important;
+                display: block;
+                padding: 0;
+            }
+            .nav>li {
+                position: relative;
+                display: block;
+                width: 100%;
+            }
+            .nav>li>a {
+                position: relative;
+                display: block;
+                padding: 10px 15px;
+            }
+            .navbar-nav>li>a {
+                line-height: 20px;
+            }
+            .navbar-form {
+                position: relative;
+            }
+            .navbar-form .form-group {
+                display: block;
+            }
+            .navbar-form .btn {
+                position: absolute;
+                right: 0;
+                top: 0;
+                border-radius: 0 6px 6px 0;
+            }
+            .navbar-form .form-control {
+                display: block;
+                width: 100%;
+            }
+        }
+        
+        @media screen and (max-width:1200px) {
+            .navbar {
+                z-index: 10;
+            }
+            .my-navbar {
+                position: fixed;
+                background-color: #ccc;
+                overflow: auto;
+                width: 70%;
+                top: 50px;
+                z-index: 9;
+                height: calc(100vh - 50px);
+                transition: 1s;
+            }
+            .my-navbar .navbar-nav {
+                margin: 0;
+            }
+            .leftIn {
+                left: -100%;
+            }
+            .rightIn {
+                right: -100%;
+            }
+            .my-navbar.leftIn.open {
+                left: 0;
+            }
+            .my-navbar.rightIn.open {
+                right: 0;
+            }
+            .navbar-form {
+                margin: 10px;
+            }
+        }
+        
+        .navbar {
+            margin-bottom: 0;
+        }
+        /* navbar 導覽列 結束 */
+        /* slider 幻燈片 開始 */
+        
+        .slide {
+            margin-bottom: 20px;
+        }
+        /* slider 幻燈片 結束 */
+        /* breadcrumb 麵包屑 開始 */
+        
+        .breadcrumb {
+            background-color: transparent;
+            margin-bottom: 0;
+        }
+        
+        .breadcrumb li+li::before {
+            content: ">";
+        }
+        
+        .breadcrumb li a {
+            color: #666;
+        }
+        
+        .breadcrumb li {
+            font-size: 20px;
+        }
+        /* breadcrumb 麵包屑 結束 */
+        /* thumbnail 縮圖組件 開始 */
+        
+        @import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+        /* Google 思源宋體 */
+        /* font-family: 'cwTeXFangSong', serif;*/
+        
+        .thumbnail .caption h3 {
+            font-family: 'cwTeXFangSong', serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        /* Indie Flower */
+        /* font-family: 'Indie Flower', cursive;*/
+        
+        .thumbnail .caption p {
+            font-family: 'Indie Flower', cursive;
+            text-align: justify;
+        }
+        
+        img {
+            width: 100%;
+        }
+        /* thumbnail 縮圖組件 結束 */
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- navbar 導覽列-->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                <span class="sr-only">選單切換</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="#">CSS嘉商</a>
+            </div>
+
+            <!-- 手機隱藏選單區 -->
+            <div class="my-navbar rightIn">
+                <!-- 左選單 -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">關於CSS嘉商</a></li>
+                    <li><a href="#">CSS教學</a></li>
+                    <li><a href="#">CSS範例</a></li>
+                </ul>
+
+                <!-- 搜尋表單 -->
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="請輸入關鍵字">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜尋</button>
+                </form>
+
+                <!-- 右選單 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="fa fa-user-rounded-o fa-lg"></span> #呆 您好</a></li>
+                    <li><a href="#"><span class="fa fa-sign-out fa-lg"></span> 登出</a></li>
+                    <li><a href="#"><span class="fa fa-cog fa-lg"></span> 個人設定</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-language fa-lg"></span> 繁體中文 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">繁體中文</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">日本語</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 手機隱藏選單區結束 -->
+        </div>
+    </nav>
+
+    <!-- slider 幻燈片 -->
+    <div id="carousel-id" class="carousel slide" data-ride="carousel">
+        <!-- 幻燈片小圓點區 -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+        </ol>
+        <!-- 幻燈片主圖區 -->
+        <div class="carousel-inner">
+            <div class="item">
+                <img src="https://picsum.photos/2800/700/?random=1">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>嘉商80生日快樂</h1>
+                        <p>HAPPY BIRTHDAY</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">立即登入</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/2800/700/?random=2">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>嘉商80生日快樂</h1>
+                        <p>HAPPY BIRTHDAY</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">活動花絮</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item active">
+                <img src="https://picsum.photos/2800/700/?random=3">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>嘉商80生日快樂</h1>
+                        <p>HAPPY BIRTHDAY</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">詳細內容</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 上下頁控制區 -->
+        <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3">
+                <!-- accordion 縮合組件 -->
+
+                <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                    <!-- 區塊1 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="panel1">
+                            <h4 class="panel-title">
+                                <a href="#aaa" data-parent="#accordion2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="aaa">
+                          收合項目標題一
+                        </a>
+                            </h4>
+                        </div>
+                        <div id="aaa" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="panel1">
+                            <div class="panel-body">
+                                內容一置入在這裡
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 區塊2 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="panel2">
+                            <h4 class="panel-title">
+                                <a href="#bbb" data-parent="#accordion2" data-toggle="collapse" role="button" class="collapsed" aria-expanded="false" aria-controls="bbb">
+                          收合項目標題二
+                        </a>
+                            </h4>
+                        </div>
+                        <div id="bbb" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panel2">
+                            <div class="panel-body">
+                                內容二置入在這裡
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 區塊3 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="panel3">
+                            <h4 class="panel-title">
+                                <a href="#ccc" data-parent="#accordion2" data-toggle="collapse" role="button" class="collapsed" aria-expanded="false" aria-controls="ccc">
+                          收合項目標題三
+                        </a>
+                            </h4>
+                        </div>
+                        <div id="ccc" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panel3">
+                            <div class="panel-body">
+                                內容三置入在這裡
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <!-- 麵包屑 -->
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">首頁</a>
+                    </li>
+                    <li>
+                        <a href="#">資處科</a>
+                    </li>
+                    <li class="active">產品介紹</li>
+                </ol>
+
+                <!-- https://fontawesome.com/v4.7.0/icons -->
+                <!-- https://brandcolors.net -->
+                <!-- https://www.wfublog.com/2016/01/font-awesome-advanced-skill-social-button.html -->
+                <!--
+                Font Awesome Class 
+                    放大 fa-lg、fa-2x ~ fa-5x 固定寬度 fa-fw              框線 fa-border
+                    向左浮動 fa-pll-left      向右浮動 fa-pll-right
+                    旋轉動畫 fa-spin          分解動畫 fa-pulse
+                    旋轉角度 fa-rotate-90     水平鏡射 fa-flip-horizontal  垂直鏡射 fa-flip-vertical
+                -->
+
+
+                <!-- thumbnail 縮圖組件 -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="thumbnail">
+                                <img class="img-rounded" src="https://picsum.photos/200/200/?random=1">
+                                <div class="caption">
+                                    <h3>資二2 19號 董秉學</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sint repellendus tempora praesentium laboriosam nostrum dolores delectus, cupiditate nisi maiores?
+                                    </p>
+                                    <p>
+                                        <a href="#" class="btn btn-info"><span class="fa fa-cart-plus"></span> 加入購物車</a>
+                                        <a href="#" class="btn btn-default"><span class="fa fa-heart"></span> 加入珍藏</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="thumbnail">
+                                <img class="img-rounded" src="https://picsum.photos/200/200/?random=2">
+                                <div class="caption">
+                                    <h3>資二2 19號 董秉學</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sint repellendus tempora praesentium laboriosam nostrum dolores delectus, cupiditate nisi maiores?
+                                    </p>
+                                    <p>
+                                        <a href="#" class="btn btn-info"><span class="fa fa-cart-plus"></span> 加入購物車</a>
+                                        <a href="#" class="btn btn-default"><span class="fa fa-heart"></span> 加入珍藏</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="thumbnail">
+                                <img class="img-rounded" src="https://picsum.photos/200/200/?random=3">
+                                <div class="caption">
+                                    <h3>資二2 19號 董秉學</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sint repellendus tempora praesentium laboriosam nostrum dolores delectus, cupiditate nisi maiores?
+                                    </p>
+                                    <p>
+                                        <a href="#" class="btn btn-info"><span class="fa fa-cart-plus"></span> 加入購物車</a>
+                                        <a href="#" class="btn btn-default"><span class="fa fa-heart"></span> 加入珍藏</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="thumbnail">
+                                <img class="img-rounded" src="https://picsum.photos/200/200/?random=4">
+                                <div class="caption">
+                                    <h3>資二2 19號 董秉學</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sint repellendus tempora praesentium laboriosam nostrum dolores delectus, cupiditate nisi maiores?
+                                    </p>
+                                    <p>
+                                        <a href="#" class="btn btn-info"><span class="fa fa-cart-plus"></span> 加入購物車</a>
+                                        <a href="#" class="btn btn-default"><span class="fa fa-heart"></span> 加入珍藏</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="thumbnail">
+                                <img class="img-rounded" src="https://picsum.photos/200/200/?random=5">
+                                <div class="caption">
+                                    <h3>資二2 19號 董秉學</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sint repellendus tempora praesentium laboriosam nostrum dolores delectus, cupiditate nisi maiores?
+                                    </p>
+                                    <p>
+                                        <a href="#" class="btn btn-info"><span class="fa fa-cart-plus"></span> 加入購物車</a>
+                                        <a href="#" class="btn btn-default"><span class="fa fa-heart"></span> 加入珍藏</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="thumbnail">
+                                <img class="img-rounded" src="https://picsum.photos/200/200/?random=6">
+                                <div class="caption">
+                                    <h3>資二2 19號 董秉學</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sint repellendus tempora praesentium laboriosam nostrum dolores delectus, cupiditate nisi maiores?
+                                    </p>
+                                    <p>
+                                        <a href="#" class="btn btn-info"><span class="fa fa-cart-plus"></span> 加入購物車</a>
+                                        <a href="#" class="btn btn-default"><span class="fa fa-heart"></span> 加入珍藏</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁數 -->
+    <div class="text-center">
+        <ul class="pager">
+            <li><a href="#">上一頁</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">下一頁</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- navbar 導覽列-->
+    <script>
+        $(function() {
+            $('.navbar-toggle').on('click', switchNav)
+
+            function switchNav() {
+                $('.my-navbar').toggleClass('open');
+            }
+        })
+    </script>
+</body>
+
+</html>
